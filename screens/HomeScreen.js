@@ -7,12 +7,16 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
+  Button
 } from "react-native";
+
+import { createStackNavigator } from "react-navigation-stack";
+import LinksScreen from "./LinksScreen";
 
 import { MonoText } from "../components/StyledText";
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
   return (
     <View style={styles.container}>
       <ScrollView
@@ -44,6 +48,10 @@ export default function HomeScreen() {
           <Text style={styles.getStartedText}>
             Let's get coding. This is so freaking cool{" "}
           </Text>
+          <Button
+            title="Go to Links"
+            onPress={() => props.navigation.navigate("Auth")}
+          />
         </View>
 
         <View style={styles.helpContainer}>
@@ -54,6 +62,8 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
       </ScrollView>
+
+      <View></View>
 
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
