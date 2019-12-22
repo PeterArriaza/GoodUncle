@@ -54,13 +54,11 @@ export default class MenuScreen extends React.Component {
               <Text>Get Menu</Text>
             </TouchableOpacity>
           </View>
-          <ScrollView>
-            <FlatList
-              data={this.state.data}
-              keyExtractor={(x, i) => i}
-              renderItem={({ item }) => <Text>{`${item.name}`}</Text>}
-            ></FlatList>
-          </ScrollView>
+          <FlatList
+            data={this.state.data}
+            keyExtractor={(x, i) => i}
+            renderItem={({ item }) => <Text>{`${item.name}`}</Text>}
+          ></FlatList>
         </View>
       </SafeAreaView>
     );
