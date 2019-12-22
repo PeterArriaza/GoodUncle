@@ -1,18 +1,20 @@
 import React from "react";
 import { View, Button, StyleSheet } from "react-native";
 
-export default class SignInScreen extends React.Component {
-  constructor() {
-    super();
-  }
-  render() {
-    return (
-      <View>
-        <Button
-          title="Go to Main"
-          onPress={() => this.props.navigation.navigate("Main")}
-        ></Button>
-      </View>
-    );
-  }
+export default function SignInScreen(props) {
+  return (
+    <View style={styles.navContainer}>
+      <Button
+        title="Preview Menu"
+        onPress={() => props.navigation.navigate("Main")}
+      ></Button>
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  navContainer: {
+    alignItems: "center",
+    marginHorizontal: 50
+  }
+});
