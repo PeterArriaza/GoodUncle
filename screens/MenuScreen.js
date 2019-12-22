@@ -12,7 +12,7 @@ import {
   FlatList,
   SafeAreaView
 } from "react-native";
-import MenuList from "../components/MenuList";
+import MenuItem from "../components/MenuItem";
 import { render } from "react-dom";
 
 export default class MenuScreen extends React.Component {
@@ -57,8 +57,11 @@ export default class MenuScreen extends React.Component {
           <FlatList
             data={this.state.data}
             keyExtractor={item => item.id}
-            renderItem={({ item }) => <Text>{`${item.name}`}</Text>}
+            renderItem={({ item }) => (
+              <MenuItem item={item} options={item.productOptions} />
+            )}
           ></FlatList>
+          {/* <MenuList data={this.state.data} /> */}
         </View>
       </SafeAreaView>
     );

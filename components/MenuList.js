@@ -1,11 +1,16 @@
 import React from "react";
+import { FlatList, Text } from "react-native";
 
-export default function MenuList() {
-  return (
-    <ul>
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
-    </ul>
-  );
+export default function MenuList(props) {
+  //   return (
+  //     // <FlatList
+  //     //   data={props.data}
+  //     //   keyExtractor={item => item.id}
+  //     //   renderItem={({ item }) => {(
+  //     //   <Text>{`${item.name}`}</Text>
+  //     // <Text>{`${item.productOptions.price}`}</Text>
+  //     //   )}
+  //     // }
+  //     // ></FlatList>
+  //   )
 }
