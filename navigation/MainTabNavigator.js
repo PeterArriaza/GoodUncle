@@ -5,8 +5,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 
 import TabBarIcon from "../components/TabBarIcon";
 import MenuScreen from "../screens/MenuScreen";
-import LinksScreen from "../screens/LinksScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import CartScreen from "../screens/CartScreen";
 
 const config = Platform.select({
   web: { headerMode: "screen" },
@@ -21,63 +20,39 @@ const MenuStack = createStackNavigator(
 );
 
 MenuStack.navigationOptions = {
-  tabBarLabel: "Home",
+  tabBarLabel: "Menu",
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === "ios"
-          ? `ios-information-circle${focused ? "" : "-outline"}`
-          : "md-information-circle"
-      }
+      name={Platform.OS === "ios" ? `ios-list` : "md-list"}
     />
   )
 };
 
 MenuStack.path = "";
 
-const LinksStack = createStackNavigator(
+const CartStack = createStackNavigator(
   {
-    Links: LinksScreen
+    Cart: CartScreen
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: "Links",
+CartStack.navigationOptions = {
+  tabBarLabel: "Cart",
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === "ios" ? "ios-link" : "md-link"}
+      name={Platform.OS === "ios" ? "ios-cart" : "md-cart"}
     />
   )
 };
 
-LinksStack.path = "";
-
-const SettingsStack = createStackNavigator(
-  {
-    Settings: SettingsScreen
-  },
-  config
-);
-
-SettingsStack.navigationOptions = {
-  tabBarLabel: "Settings",
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === "ios" ? "ios-options" : "md-options"}
-    />
-  )
-};
-
-SettingsStack.path = "";
+CartStack.path = "";
 
 const tabNavigator = createBottomTabNavigator({
   MenuStack,
-  LinksStack,
-  SettingsStack
+  CartStack
 });
 
 tabNavigator.path = "";

@@ -56,7 +56,7 @@ export default class MenuScreen extends React.Component {
           </View>
           <FlatList
             data={this.state.data}
-            keyExtractor={(x, i) => i}
+            keyExtractor={item => item.id}
             renderItem={({ item }) => <Text>{`${item.name}`}</Text>}
           ></FlatList>
         </View>
