@@ -13,6 +13,7 @@ import {
   SafeAreaView
 } from "react-native";
 import MenuItem from "../components/MenuItem";
+import MenuItemDetailScreen from "../screens/MenuItemDetailScreen";
 import { render } from "react-dom";
 
 export default class MenuScreen extends React.Component {
@@ -54,14 +55,18 @@ export default class MenuScreen extends React.Component {
               <Text>Get Menu</Text>
             </TouchableOpacity>
           </View>
+
           <FlatList
             data={this.state.data}
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
-              <MenuItem item={item} options={item.productOptions} />
+              <MenuItem
+                item={item}
+                options={item.productOptions}
+                navigation={this.props.navigation}
+              />
             )}
           ></FlatList>
-          {/* <MenuList data={this.state.data} /> */}
         </View>
       </SafeAreaView>
     );

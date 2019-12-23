@@ -15,6 +15,7 @@ export default function SignInScreen(props) {
 const styles = StyleSheet.create({
   navContainer: {
     alignItems: "center",
-    marginHorizontal: 50
+    marginHorizontal: 50,
+    marginTop: 50
   }
 });

@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 import TabBarIcon from "../components/TabBarIcon";
 import MenuScreen from "../screens/MenuScreen";
 import CartScreen from "../screens/CartScreen";
+import MenuItemDetailScreen from "../screens/MenuItemDetailScreen";
 
 const config = Platform.select({
   web: { headerMode: "screen" },
@@ -14,7 +15,8 @@ const config = Platform.select({
 
 const MenuStack = createStackNavigator(
   {
-    Menu: MenuScreen
+    Menu: MenuScreen,
+    MenuItemDetail: MenuItemDetailScreen
   },
   config
 );
@@ -50,10 +52,18 @@ CartStack.navigationOptions = {
 
 CartStack.path = "";
 
-const tabNavigator = createBottomTabNavigator({
-  MenuStack,
-  CartStack
-});
+const tabNavigator = createBottomTabNavigator(
+  {
+    MenuStack,
+    CartStack
+  },
+  {
+    headerMode: "none",
+    navigationOptions: {
+      headerVisible: false
+    }
+  }
+);
 
 tabNavigator.path = "";
 
