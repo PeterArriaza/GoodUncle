@@ -8,7 +8,8 @@ export default function MenuItem(props) {
       onPress={() =>
         props.navigation.navigate("MenuItemDetail", {
           name: props.item.name,
-          price: props.options[0].price
+          price: props.options[0].price,
+          ingredients: props.item.ingredients
         })
       }
     >
