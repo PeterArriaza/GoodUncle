@@ -2,7 +2,7 @@ import React from "react";
 import { Platform, TouchableOpacity, Text } from "react-native";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
-import Icon from "@expo/vector-icons/Ionicons";
+// import Icon from "@expo/vector-icons/Ionicons";
 import TabBarIcon from "../components/TabBarIcon";
 import MenuScreen from "../screens/MenuScreen";
 import CartScreen from "../screens/CartScreen";
@@ -26,14 +26,10 @@ const MenuStack = createStackNavigator(
               backgroundColor: "rgba(17, 242, 21, .8)",
               padding: 10
             }}
+            onPress={() => this.props.navigation.navigate("Cart")}
           >
             <Text>Add to Cart</Text>
           </TouchableOpacity>
-          // <Icon
-          //   style={{ paddingRight: 20 }}
-          //   name={Platform.OS === "ios" ? "ios-cart" : "md-cart"}
-          //   size={20}
-          // ></Icon>
         )
       }
     }
