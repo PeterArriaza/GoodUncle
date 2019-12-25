@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { render } from "react-dom";
 
 export default class MenuItemDetailScreen extends React.Component {
   render() {

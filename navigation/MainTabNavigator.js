@@ -1,12 +1,14 @@
 import React from "react";
-import { Platform, TouchableOpacity, Text } from "react-native";
+import { Platform, TouchableOpacity, Text, View } from "react-native";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
+import { withNavigation } from "react-navigation";
 // import Icon from "@expo/vector-icons/Ionicons";
 import TabBarIcon from "../components/TabBarIcon";
 import MenuScreen from "../screens/MenuScreen";
 import CartScreen from "../screens/CartScreen";
 import MenuItemDetailScreen from "../screens/MenuItemDetailScreen";
+import { connect } from "react-redux";
 
 const config = Platform.select({
   web: { headerMode: "screen" },
@@ -56,14 +58,40 @@ const CartStack = createStackNavigator(
   config
 );
 
+const TabBarIconCart = props => {
+  console.log(props);
+
+  return (
+    <View
+      style={{
+        flexDirection: "row",
+        padding: 5,
+        marginLeft: 30,
+        marginTop: 7
+      }}
+    >
+      <TabBarIcon
+        focused={props.focused}
+        name={Platform.OS === "ios" ? "ios-cart" : "md-cart"}
+      />
+      <Text style={{ fontSize: 15, padding: 5, marginLeft: 10 }}>
+        {props.total}
+      </Text>
+    </View>
+  );
+};
+
+const mapStateToProps = state => {
+  return {
+    total: state.total
+  };
+};
+
+const TabBarIconCartStateful = connect(mapStateToProps)(TabBarIconCart);
+
 CartStack.navigationOptions = {
   tabBarLabel: "Cart",
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === "ios" ? "ios-cart" : "md-cart"}
-    />
-  )
+  tabBarIcon: ({ focused }) => <TabBarIconCartStateful focused={focused} />
 };
 
 CartStack.path = "";

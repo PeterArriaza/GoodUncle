@@ -1,13 +1,9 @@
-import React, { isValidElement } from "react";
+import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 export default function MenuItem(props) {
   const name = props.item.name;
   const price = (JSON.parse(props.options[0].price) / 100).toFixed(2);
-
-  function isEven(n) {
-    return n % 2 === 0;
-  }
 
   return (
     <TouchableOpacity
@@ -24,7 +20,7 @@ export default function MenuItem(props) {
         <Text>{`${name}`}</Text>
       </View>
       <View>
-        <Text>{`$ ${price}`}</Text>
+        <Text>{`$${price}`}</Text>
       </View>
     </TouchableOpacity>
   );
