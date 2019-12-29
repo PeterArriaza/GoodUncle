@@ -1,17 +1,19 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { connect } from "react-redux";
+import { addToCart } from "../actions";
 
-export default function MenuItem(props) {
+export function MenuItem(props) {
   const name = props.item.name;
   const price = (JSON.parse(props.options[0].price) / 100).toFixed(2);
-
+  // console.log(props.total);
   return (
     <TouchableOpacity
       style={styles.menuRow}
       onPress={() =>
         props.navigation.navigate("MenuItemDetail", {
-          name: props.item.name,
-          price: props.options[0].price,
+          name: name,
+          price: price,
           ingredients: props.item.ingredients
         })
       }
@@ -25,6 +27,15 @@ export default function MenuItem(props) {
     </TouchableOpacity>
   );
 }
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addItemToCart: item => dispatch({ type: "ADD_TO_CART", payload: item })
+//   };
+// };
+
+// export default connect(mapStateToProps)(MenuItem);
+export default MenuItem;
 
 const styles = StyleSheet.create({
   menuRow: {

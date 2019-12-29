@@ -15,6 +15,7 @@ import {
 import MenuItem from "../components/MenuItem";
 import MenuItemDetailScreen from "../screens/MenuItemDetailScreen";
 import { render } from "react-dom";
+import { connect } from "react-redux";
 
 export default class MenuScreen extends React.Component {
   constructor(props) {

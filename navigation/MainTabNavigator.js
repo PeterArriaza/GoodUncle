@@ -19,21 +19,22 @@ const MenuStack = createStackNavigator(
   {
     Menu: MenuScreen,
     MenuItemDetail: {
-      screen: MenuItemDetailScreen,
-      navigationOptions: {
-        headerRight: (
-          <TouchableOpacity
-            style={{
-              marginRight: 20,
-              backgroundColor: "rgba(17, 242, 21, .8)",
-              padding: 10
-            }}
-            onPress={() => this.props.navigation.navigate("Cart")}
-          >
-            <Text>Add to Cart</Text>
-          </TouchableOpacity>
-        )
-      }
+      screen: MenuItemDetailScreen
+      // ,
+      // navigationOptions: {
+      //   headerRight: (
+      //     <TouchableOpacity
+      //       style={{
+      //         marginRight: 20,
+      //         backgroundColor: "rgba(17, 242, 21, .8)",
+      //         padding: 10
+      //       }}
+      //       onPress={() => this.props.navigation.navigate("Cart")}
+      //     >
+      //       <Text>Add to Cart</Text>
+      //     </TouchableOpacity>
+      //   )
+      // }
     }
   },
   config
@@ -59,14 +60,12 @@ const CartStack = createStackNavigator(
 );
 
 const TabBarIconCart = props => {
-  console.log(props);
-
   return (
     <View
       style={{
         flexDirection: "row",
         padding: 5,
-        marginLeft: 30,
+        marginLeft: 40,
         marginTop: 7
       }}
     >
@@ -75,7 +74,7 @@ const TabBarIconCart = props => {
         name={Platform.OS === "ios" ? "ios-cart" : "md-cart"}
       />
       <Text style={{ fontSize: 15, padding: 5, marginLeft: 10 }}>
-        {props.total}
+        ({props.total.length}){" "}
       </Text>
     </View>
   );
@@ -83,7 +82,7 @@ const TabBarIconCart = props => {
 
 const mapStateToProps = state => {
   return {
-    total: state.total
+    total: state
   };
 };
 
