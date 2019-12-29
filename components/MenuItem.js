@@ -6,7 +6,6 @@ import { addToCart } from "../actions";
 export function MenuItem(props) {
   const name = props.item.name;
   const price = (JSON.parse(props.options[0].price) / 100).toFixed(2);
-  // console.log(props.total);
   return (
     <TouchableOpacity
       style={styles.menuRow}

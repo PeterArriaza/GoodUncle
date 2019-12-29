@@ -1,16 +1,26 @@
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
-import { ExpoLinksView } from "@expo/samples";
+import { View, StyleSheet, Text } from "react-native";
+import { connect } from "react-redux";
+import { FlatList } from "react-native-gesture-handler";
 
-export default function CartScreen() {
+export function CartScreen(props) {
+  console.log(props);
   return (
-    <ScrollView style={styles.container}>
-      {/**
-       * Go ahead and delete ExpoLinksView and replace it with your content;
-       * we just wanted to provide you with some helpful links.
-       */}
-      <ExpoLinksView />
-    </ScrollView>
+    <View style={styles.container}>
+      {props.cartItems.length > 0 ? (
+        <FlatList
+          data={props.cartItems}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.cartItemRow}>
+              <Text>{`${item.name}`}</Text>
+            </View>
+          )}
+        ></FlatList>
+      ) : (
+        <Text>Your cart is empty :(</Text>
+      )}
+    </View>
   );
 }
 
@@ -18,10 +28,23 @@ CartScreen.navigationOptions = {
   title: "Cart"
 };
 
+const mapStateToProps = state => {
+  return {
+    cartItems: state
+  };
+};
+
+export default connect(mapStateToProps)(CartScreen);
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
     backgroundColor: "#fff"
+  },
+  cartItemRow: {
+    marginHorizontal: 5,
+    marginVertical: 5,
+    padding: 20
   }
 });

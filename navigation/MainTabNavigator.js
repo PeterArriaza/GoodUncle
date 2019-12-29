@@ -74,7 +74,7 @@ const TabBarIconCart = props => {
         name={Platform.OS === "ios" ? "ios-cart" : "md-cart"}
       />
       <Text style={{ fontSize: 15, padding: 5, marginLeft: 10 }}>
-        ({props.total.length}){" "}
+        ({props.cartItems.length}){" "}
       </Text>
     </View>
   );
@@ -82,7 +82,7 @@ const TabBarIconCart = props => {
 
 const mapStateToProps = state => {
   return {
-    total: state
+    cartItems: state
   };
 };
 

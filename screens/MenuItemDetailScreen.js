@@ -7,7 +7,7 @@ import { addToCart } from "../actions";
 export class MenuItemDetailScreen extends React.Component {
   render() {
     const { navigation } = this.props;
-    console.log(navigation.state.params);
+    // console.log(navigation.state.params);
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.detailContainer}>
@@ -42,12 +42,7 @@ export class MenuItemDetailScreen extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  total: state.total
-});
-
-export default connect(mapStateToProps)(MenuItemDetailScreen);
-// export default MenuItemDetailScreen;
+export default connect()(MenuItemDetailScreen);
 
 const styles = StyleSheet.create({
   detailContainer: {
