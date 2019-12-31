@@ -1,8 +1,8 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../actions";
-
-// const initialState = {
-//   cartItems: []
-// };
+import {
+  ADD_TO_CART,
+  INCREMENT_ITEM_QUANTITY,
+  DECREMENT_ITEM_QUANTITY
+} from "../actions";
 
 const updateCartItem = (cart, index) => {
   const updatedCart = [...cart];
@@ -15,22 +15,38 @@ const updateCartItem = (cart, index) => {
   return updatedCart;
 };
 
+const findItemIndex = (cart, updateItem) => {
+  let itemIndex = cart.findIndex(item => item.id === updateItem.id);
+  return itemIndex;
+};
+
 export default (state = [], action) => {
   switch (action.type) {
-    case ADD_TO_CART:
-      let cart = state;
-      let itemAdded = action.item;
+    case ADD_TO_CART: {
+      const cart = state;
+      const item = action.item;
 
-      console.log("before action:", state);
+      //   console.log("before action:", state);
 
-      const itemInCartIndex = cart.findIndex(item => item.id === itemAdded.id);
+      const itemInCartIndex = findItemIndex(cart, item);
+
+      console.log(itemInCartIndex);
 
       const updatedCart =
         itemInCartIndex >= 0
           ? updateCartItem(cart, itemInCartIndex)
-          : [...state, itemAdded];
+          : [...state, item];
 
       return updatedCart;
+    }
+
+    case INCREMENT_ITEM_QUANTITY: {
+      const cart = state;
+      const updateItem = action.item;
+      const itemInCartIndex = findItemIndex(cart, updateItem);
+      const updatedCart = updateCartItem(cart, itemInCartIndex);
+      return updatedCart;
+    }
   }
   return state;
 };

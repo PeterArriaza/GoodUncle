@@ -2,6 +2,7 @@ import React from "react";
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
 import { FlatList } from "react-native-gesture-handler";
+import { incrementItemQuantity } from "../actions";
 
 export class CartScreen extends React.Component {
   render() {
@@ -19,7 +20,12 @@ export class CartScreen extends React.Component {
                   <Text>{`${item.name}`}</Text>
                 </View>
                 <View style={styles.cartItemQuantity}>
-                  <TouchableOpacity style={styles.quantityButton}>
+                  <TouchableOpacity
+                    style={styles.quantityButton}
+                    onPress={() =>
+                      this.props.dispatch(incrementItemQuantity(item))
+                    }
+                  >
                     <Text style={styles.quantityButtonText}>+</Text>
                   </TouchableOpacity>
 
