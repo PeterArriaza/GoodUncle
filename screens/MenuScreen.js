@@ -1,21 +1,13 @@
-import * as WebBrowser from "expo-web-browser";
 import React from "react";
 import {
-  Image,
-  Platform,
-  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
-  TouchableHighlight,
   View,
   FlatList,
   SafeAreaView
 } from "react-native";
 import MenuItem from "../components/MenuItem";
-import MenuItemDetailScreen from "../screens/MenuItemDetailScreen";
-import { render } from "react-dom";
-import { connect } from "react-redux";
 
 export default class MenuScreen extends React.Component {
   constructor(props) {
@@ -32,6 +24,11 @@ export default class MenuScreen extends React.Component {
     const json = await response.json();
     this.setState({ data: json.digestData.mains });
   };
+
+  componentDidMount() {
+    this.getMenu();
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -45,15 +42,6 @@ export default class MenuScreen extends React.Component {
               onPress={() => this.props.navigation.navigate("Auth")}
             >
               <Text>Sign Out</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.navContainer}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => this.getMenu()}
-            >
-              <Text>Get Menu</Text>
             </TouchableOpacity>
           </View>
 

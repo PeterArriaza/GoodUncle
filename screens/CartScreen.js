@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
 import { FlatList } from "react-native-gesture-handler";
 
@@ -15,8 +15,24 @@ export class CartScreen extends React.Component {
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
               <View style={styles.cartItemRow}>
-                <Text>{`${item.name}`}</Text>
-                <Text>{`Quantity: ${item.quantity}`}</Text>
+                <View style={styles.cartItemName}>
+                  <Text>{`${item.name}`}</Text>
+                </View>
+                <View style={styles.cartItemQuantity}>
+                  <TouchableOpacity style={styles.quantityButton}>
+                    <Text style={styles.quantityButtonText}>+</Text>
+                  </TouchableOpacity>
+
+                  <View style={styles.quantityTextContainer}>
+                    <Text
+                      style={styles.quantityText}
+                    >{`${item.quantity}`}</Text>
+                  </View>
+
+                  <TouchableOpacity style={styles.quantityButton}>
+                    <Text style={styles.quantityButtonText}>-</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             )}
           ></FlatList>
@@ -49,8 +65,38 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   cartItemRow: {
+    flexDirection: "row",
     marginHorizontal: 5,
     marginVertical: 5,
-    padding: 20
+    padding: 20,
+    alignItems: "center"
+  },
+  cartItemName: {
+    flex: 2
+  },
+  cartItemQuantity: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center"
+  },
+  quantityTextContainer: {
+    height: 35,
+    backgroundColor: "rgba(17, 242, 21, .2)"
+  },
+  quantityText: {
+    padding: 10,
+    borderColor: "black"
+  },
+  quantityButton: {
+    width: 35,
+    height: 35,
+    backgroundColor: "rgba(17, 242, 21, .8)",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  quantityButtonText: {
+    fontSize: 15,
+    fontWeight: "bold"
   }
 });
