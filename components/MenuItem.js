@@ -5,6 +5,7 @@ import { addToCart } from "../actions";
 
 export function MenuItem(props) {
   const name = props.item.name;
+  const itemId = props.item.id;
   const price = (JSON.parse(props.options[0].price) / 100).toFixed(2);
   return (
     <TouchableOpacity
@@ -12,8 +13,10 @@ export function MenuItem(props) {
       onPress={() =>
         props.navigation.navigate("MenuItemDetail", {
           name: name,
+          itemId: itemId,
           price: price,
-          ingredients: props.item.ingredients
+          ingredients: props.item.ingredients,
+          quantity: 0
         })
       }
     >

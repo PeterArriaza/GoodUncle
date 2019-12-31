@@ -8,6 +8,7 @@ export class MenuItemDetailScreen extends React.Component {
   render() {
     const { navigation } = this.props;
     // console.log(navigation.state.params);
+    // console.log(this.props.items);
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.detailContainer}>
@@ -42,7 +43,7 @@ export class MenuItemDetailScreen extends React.Component {
   }
 }
 
-export default connect()(MenuItemDetailScreen);
+export default connect(state => ({ items: state }))(MenuItemDetailScreen);
 
 const styles = StyleSheet.create({
   detailContainer: {

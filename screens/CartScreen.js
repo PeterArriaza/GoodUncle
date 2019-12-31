@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { FlatList } from "react-native-gesture-handler";
 
 export function CartScreen(props) {
-  console.log(props);
+  console.log(props.cartItems);
   return (
     <View style={styles.container}>
       {props.cartItems.length > 0 ? (
