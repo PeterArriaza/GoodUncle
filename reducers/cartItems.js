@@ -15,6 +15,21 @@ const updateCartItem = (cart, index) => {
   return updatedCart;
 };
 
+const reduceCartItem = (cart, index) => {
+  const updatedCart = [...cart];
+  const itemInCart = updatedCart[index];
+  if (itemInCart.quantity === 1)
+    return updatedCart.filter(item => item.id !== itemInCart.id);
+  else {
+    const updatedCartItem = {
+      ...itemInCart,
+      quantity: itemInCart.quantity - 1
+    };
+    updatedCart[index] = updatedCartItem;
+    return updatedCart;
+  }
+};
+
 const findItemIndex = (cart, updateItem) => {
   let itemIndex = cart.findIndex(item => item.id === updateItem.id);
   return itemIndex;
@@ -25,12 +40,7 @@ export default (state = [], action) => {
     case ADD_TO_CART: {
       const cart = state;
       const item = action.item;
-
-      //   console.log("before action:", state);
-
       const itemInCartIndex = findItemIndex(cart, item);
-
-      console.log(itemInCartIndex);
 
       const updatedCart =
         itemInCartIndex >= 0
@@ -46,6 +56,14 @@ export default (state = [], action) => {
       const itemInCartIndex = findItemIndex(cart, updateItem);
       const updatedCart = updateCartItem(cart, itemInCartIndex);
       return updatedCart;
+    }
+
+    case DECREMENT_ITEM_QUANTITY: {
+      const cart = state;
+      const updateItem = action.item;
+      const itemInCartIndex = findItemIndex(cart, updateItem);
+      const reducedCart = reduceCartItem(cart, itemInCartIndex);
+      return reducedCart;
     }
   }
   return state;
