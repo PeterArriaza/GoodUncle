@@ -1,7 +1,8 @@
 import {
   ADD_TO_CART,
   INCREMENT_ITEM_QUANTITY,
-  DECREMENT_ITEM_QUANTITY
+  DECREMENT_ITEM_QUANTITY,
+  REMOVE_FROM_CART
 } from "../actions";
 
 const updateCartItem = (cart, index) => {
@@ -31,43 +32,77 @@ const reduceCartItem = (cart, index) => {
 };
 
 const findItemIndex = (cart, updateItem) => {
+  console.log(cart);
   let itemIndex = cart.findIndex(item => item.id === updateItem.id);
   return itemIndex;
 };
 
-export default (state = [], action) => {
+const initialState = {
+  cartItems: [],
+  total: 0
+};
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART: {
-      const cart = state;
+      const cart = state.cartItems;
       const item = action.item;
+      const price = JSON.parse(item.price);
       const itemInCartIndex = findItemIndex(cart, item);
 
       const updatedCart =
         itemInCartIndex >= 0
           ? updateCartItem(cart, itemInCartIndex)
-          : [...state, item];
+          : [...cart, item];
 
-      return updatedCart;
+      return {
+        ...state,
+        cartItems: updatedCart,
+        total: JSON.parse((state.total + price).toFixed(2))
+      };
     }
 
     case INCREMENT_ITEM_QUANTITY: {
-      const cart = state;
+      const cart = state.cartItems;
       const updateItem = action.item;
+      const price = JSON.parse(updateItem.price);
       const itemInCartIndex = findItemIndex(cart, updateItem);
       const updatedCart = updateCartItem(cart, itemInCartIndex);
-      return updatedCart;
+      return {
+        ...state,
+        cartItems: updatedCart,
+        total: JSON.parse((state.total + price).toFixed(2))
+      };
     }
 
     case DECREMENT_ITEM_QUANTITY: {
-      const cart = state;
+      const cart = state.cartItems;
       const updateItem = action.item;
+      const price = JSON.parse(updateItem.price);
       const itemInCartIndex = findItemIndex(cart, updateItem);
       const reducedCart = reduceCartItem(cart, itemInCartIndex);
-      return reducedCart;
+      return {
+        ...state,
+        cartItems: reducedCart,
+        total: JSON.parse((state.total - price).toFixed(2))
+      };
+    }
+
+    case REMOVE_FROM_CART: {
+      const cart = state.cartItems;
+      const updateItem = action.item;
+      const itemInCartIndex = findItemIndex(cart, updateItem);
+      const totalItemPrice = JSON.parse(
+        (cart[itemInCartIndex].quantity * cart[itemInCartIndex].price).toFixed(
+          2
+        )
+      );
+      return {
+        ...state,
+        cartItems: cart.filter(item => item.id !== action.item.id),
+        total: state.total - totalItemPrice
+      };
     }
   }
   return state;
 };
-
-// case REMOVE_FROM_CART:
-//   return state.cartItemsfilter(item => item.id !== action.payload.id);

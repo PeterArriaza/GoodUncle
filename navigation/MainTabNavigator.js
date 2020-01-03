@@ -20,21 +20,6 @@ const MenuStack = createStackNavigator(
     Menu: MenuScreen,
     MenuItemDetail: {
       screen: MenuItemDetailScreen
-      // ,
-      // navigationOptions: {
-      //   headerRight: (
-      //     <TouchableOpacity
-      //       style={{
-      //         marginRight: 20,
-      //         backgroundColor: "rgba(17, 242, 21, .8)",
-      //         padding: 10
-      //       }}
-      //       onPress={() => this.props.navigation.navigate("Cart")}
-      //     >
-      //       <Text>Add to Cart</Text>
-      //     </TouchableOpacity>
-      //   )
-      // }
     }
   },
   config
@@ -65,7 +50,6 @@ const TabBarIconCart = props => {
       style={{
         flexDirection: "row",
         padding: 5,
-        marginLeft: 40,
         marginTop: 7
       }}
     >
@@ -73,16 +57,26 @@ const TabBarIconCart = props => {
         focused={props.focused}
         name={Platform.OS === "ios" ? "ios-cart" : "md-cart"}
       />
-      <Text style={{ fontSize: 15, padding: 5, marginLeft: 10 }}>
-        ({props.cartItems.length}){" "}
-      </Text>
+      <View
+        style={{
+          position: "absolute",
+          top: 2,
+          left: 30,
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <Text style={{ fontSize: 15, padding: 5 }}>
+          ({props.cartItems.length}){" "}
+        </Text>
+      </View>
     </View>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    cartItems: state
+    cartItems: state.cartItems
   };
 };
 

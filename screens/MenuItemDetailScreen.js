@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  Modal,
+  Alert
+} from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { connect } from "react-redux";
 import { addToCart } from "../actions";
@@ -7,8 +14,6 @@ import { addToCart } from "../actions";
 export class MenuItemDetailScreen extends React.Component {
   render() {
     const { navigation } = this.props;
-    // console.log(navigation.state.params);
-    // console.log(this.props.items);
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.detailContainer}>
