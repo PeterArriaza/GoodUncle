@@ -100,7 +100,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         cartItems: cart.filter(item => item.id !== action.item.id),
-        total: state.total - totalItemPrice
+        total: JSON.parse((state.total - totalItemPrice).toFixed(2))
       };
     }
   }

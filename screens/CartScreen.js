@@ -141,12 +141,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
+  cartListContainer: {
+    flex: 1
+  },
   totalDisplay: {
-    marginHorizontal: 5,
-    alignItems: "center"
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center",
+    marginTop: 30,
+    marginBottom: -20
   },
   totalText: {
     fontSize: 15,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    justifyContent: "flex-end"
   }
 });
