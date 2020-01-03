@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Button, StyleSheet, Text } from "react-native";
 
-export default function SignInScreen(props) {
+export default function SignUpScreen(props) {
   return (
     <View style={styles.container}>
-      <Text>Sign In Screen</Text>
+      <Text>Sign Up Screen</Text>
     </View>
   );
 }

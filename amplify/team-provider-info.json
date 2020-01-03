@@ -10,6 +10,11 @@
             "StackName": "amplify-gooduncle-test-171812",
             "StackId": "arn:aws:cloudformation:us-east-2:512260167394:stack/amplify-gooduncle-test-171812/c4738a80-2dad-11ea-b62a-027927fac094",
             "AmplifyAppId": "d1dex0i0viem79"
+        },
+        "categories": {
+            "auth": {
+                "goodunclebdfab3d8": {}
+            }
         }
     }
 }

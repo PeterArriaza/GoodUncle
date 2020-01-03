@@ -7,8 +7,13 @@ import { Ionicons } from "@expo/vector-icons";
 import { Provider } from "react-redux";
 import AppNavigator from "./navigation/AppNavigator";
 import store from "./store/index";
+import Amplify, { Auth } from "aws-amplify";
+import awsconfig from "./aws-exports";
+import { withAuthenticator } from "aws-amplify-react-native";
 
-export default function App(props) {
+Amplify.configure(awsconfig);
+
+export function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
@@ -30,6 +35,9 @@ export default function App(props) {
     );
   }
 }
+
+// export default withAuthenticator(App, true);
+export default App;
 
 async function loadResourcesAsync() {
   await Promise.all([

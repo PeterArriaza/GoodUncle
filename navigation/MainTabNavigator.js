@@ -18,9 +18,7 @@ const config = Platform.select({
 const MenuStack = createStackNavigator(
   {
     Menu: MenuScreen,
-    MenuItemDetail: {
-      screen: MenuItemDetailScreen
-    }
+    MenuItemDetail: MenuItemDetailScreen
   },
   config
 );
