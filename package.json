@@ -12,14 +12,9 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@aws-amplify/api": "^2.1.2",
-    "@aws-amplify/pubsub": "^2.1.2",
     "@expo/samples": "~36.0.0",
     "@expo/vector-icons": "^10.0.6",
     "@react-navigation/web": "~1.0.0-alpha.9",
-    "amazon-cognito-identity-js": "^3.2.1",
-    "aws-amplify": "^2.2.1",
-    "aws-amplify-react-native": "^2.2.3",
     "expo": "~36.0.0",
     "expo-asset": "~8.0.0",
     "expo-constants": "~8.0.0",
