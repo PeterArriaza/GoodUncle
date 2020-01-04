@@ -37,6 +37,9 @@ export class CartScreen extends React.Component {
                         name={Platform.OS === "ios" ? "ios-trash" : "md-trash"}
                       />
                     </TouchableOpacity>
+                    <Text style={styles.itemSubTotal}>
+                      ${`${item.price * item.quantity}`}
+                    </Text>
                   </View>
                   <View style={styles.cartItemQuantity}>
                     <TouchableOpacity
@@ -112,6 +115,9 @@ const styles = StyleSheet.create({
   },
   cartItemName: {
     flex: 2
+  },
+  itemSubTotal: {
+    marginTop: 5
   },
   cartItemQuantity: {
     flex: 1,
