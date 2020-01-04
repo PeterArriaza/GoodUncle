@@ -1,5 +1,11 @@
 import React from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  SafeAreaView
+} from "react-native";
 import { connect } from "react-redux";
 import { FlatList } from "react-native-gesture-handler";
 import TabBarIcon from "../components/TabBarIcon";
@@ -11,12 +17,12 @@ import {
 
 export class CartScreen extends React.Component {
   render() {
-    console.log(this.props.total);
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         {this.props.cartItems.length > 0 ? (
           <View style={styles.cartListContainer}>
             <FlatList
+              contentContainerStyle={{ marginBottom: 10 }}
               data={this.props.cartItems}
               keyExtractor={item => item.id}
               renderItem={({ item }) => (
@@ -69,7 +75,7 @@ export class CartScreen extends React.Component {
             <Text>Your cart is empty :(</Text>
           </View>
         )}
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -145,11 +151,12 @@ const styles = StyleSheet.create({
     flex: 1
   },
   totalDisplay: {
-    flex: 1,
     justifyContent: "flex-end",
     alignItems: "center",
-    marginTop: 30,
-    marginBottom: -20
+    marginTop: 10,
+    marginBottom: -20,
+    zIndex: 2000,
+    height: 30
   },
   totalText: {
     fontSize: 15,

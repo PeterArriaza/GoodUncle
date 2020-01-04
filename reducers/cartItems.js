@@ -32,7 +32,6 @@ const reduceCartItem = (cart, index) => {
 };
 
 const findItemIndex = (cart, updateItem) => {
-  console.log(cart);
   let itemIndex = cart.findIndex(item => item.id === updateItem.id);
   return itemIndex;
 };
