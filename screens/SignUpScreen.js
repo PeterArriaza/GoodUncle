@@ -44,11 +44,13 @@ export default class SignUpScreen extends React.Component {
           onChangeText={value => this.onChangeText("email", value)}
           style={styles.input}
           placeholder="email (used as username)"
+          keyboardType="email-address"
         />
         <TextInput
           onChangeText={value => this.onChangeText("name", value)}
           style={styles.input}
           placeholder="name"
+          autoCapitalize="words"
         />
         <TextInput
           onChangeText={value => this.onChangeText("password", value)}
@@ -59,7 +61,8 @@ export default class SignUpScreen extends React.Component {
         <TextInput
           onChangeText={value => this.onChangeText("phone_number", value)}
           style={styles.input}
-          placeholder="phone"
+          placeholder="phone with country code (+1 for USA)"
+          keyboardType="phone-pad"
         />
         <Button title="Sign Up" onPress={this.signUp.bind(this)} />
       </View>

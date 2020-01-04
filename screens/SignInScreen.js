@@ -4,6 +4,9 @@ import { TextInput, Button, StyleSheet, Text, View } from "react-native";
 import { Auth } from "aws-amplify";
 
 export default class SignInScreen extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
     username: "",
     password: "",
@@ -21,6 +24,7 @@ export default class SignInScreen extends React.Component {
       .then(user => {
         this.setState({ user });
         console.log("successful sign in!");
+        this.props.navigation.navigate("Main");
       })
       .catch(err => console.log("error signing in!: ", err));
   }

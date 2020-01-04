@@ -38,6 +38,7 @@ export class MenuItemDetailScreen extends React.Component {
             style={styles.addButton}
             onPress={() => {
               this.props.dispatch(addToCart(navigation.state.params));
+              navigation.navigate("Menu");
             }}
           >
             <Text>Add to Cart</Text>

@@ -8,6 +8,7 @@ import {
   SafeAreaView
 } from "react-native";
 import MenuItem from "../components/MenuItem";
+import { Auth } from "aws-amplify";
 
 export default class MenuScreen extends React.Component {
   constructor(props) {
@@ -39,7 +40,13 @@ export default class MenuScreen extends React.Component {
           <View style={styles.navContainer}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => this.props.navigation.navigate("Auth")}
+              onPress={() => {
+                this.props.navigation.navigate("Auth");
+
+                Auth.signOut()
+                  .then(data => console.log(data))
+                  .catch(err => console.log(err));
+              }}
             >
               <Text>Sign Out</Text>
             </TouchableOpacity>

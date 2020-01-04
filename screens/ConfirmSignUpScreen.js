@@ -18,7 +18,10 @@ export default class ConfirmSignUpScreen extends React.Component {
       this.props.navigation.getParam("username"),
       this.state.confirmationCode
     )
-      .then(() => console.log("successful confirm sign up!"))
+      .then(() => {
+        console.log("successful confirm sign up!");
+        this.props.navigation.navigate("Main");
+      })
       .catch(err => console.log("error confirming signing up!: ", err));
   }
   render() {
@@ -28,7 +31,8 @@ export default class ConfirmSignUpScreen extends React.Component {
         <TextInput
           onChangeText={value => this.onChangeText("confirmationCode", value)}
           style={styles.input}
-          placeholder="confirmation Code"
+          placeholder="confirmation code"
+          keyboardType="number-pad"
         />
         <Button
           title="Confirm Sign Up"

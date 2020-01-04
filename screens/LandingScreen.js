@@ -25,11 +25,6 @@ export default function LandingScreen(props) {
           onPress={() => props.navigation.navigate("SignUpScreen")}
           style={styles.button}
         ></Button>
-        <Button
-          title="Preview Menu"
-          onPress={() => props.navigation.navigate("Main")}
-          style={styles.button}
-        ></Button>
       </View>
     </View>
   );
