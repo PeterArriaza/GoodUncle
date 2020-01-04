@@ -6,6 +6,7 @@ import MainTabNavigator from "./MainTabNavigator";
 import LandingScreen from "../screens/LandingScreen";
 import SignUpScreen from "../screens/SignUpScreen";
 import SignInScreen from "../screens/SignInScreen";
+import ConfirmSignUpScreen from "../screens/ConfirmSignUpScreen";
 
 const AuthStack = createStackNavigator({
   LandingScreen: {
@@ -15,7 +16,8 @@ const AuthStack = createStackNavigator({
     }
   },
   SignInScreen: SignInScreen,
-  SignUpScreen: SignUpScreen
+  SignUpScreen: SignUpScreen,
+  ConfirmSignUpScreen: ConfirmSignUpScreen
 });
 
 export default createAppContainer(

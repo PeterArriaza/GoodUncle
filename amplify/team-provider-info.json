@@ -1,0 +1,20 @@
+{
+    "guenv": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-gooduncle-guenv-125947-authRole",
+            "UnauthRoleArn": "arn:aws:iam::411004065436:role/amplify-gooduncle-guenv-125947-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::411004065436:role/amplify-gooduncle-guenv-125947-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-gooduncle-guenv-125947-deployment",
+            "UnauthRoleName": "amplify-gooduncle-guenv-125947-unauthRole",
+            "StackName": "amplify-gooduncle-guenv-125947",
+            "StackId": "arn:aws:cloudformation:us-east-2:411004065436:stack/amplify-gooduncle-guenv-125947/00030890-2f1c-11ea-a015-02ae28e83a86",
+            "AmplifyAppId": "d2pfk1x5r0upi1"
+        },
+        "categories": {
+            "auth": {
+                "GUAuth": {}
+            }
+        }
+    }
+}

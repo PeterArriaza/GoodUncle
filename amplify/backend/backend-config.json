@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"GUAuth": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
