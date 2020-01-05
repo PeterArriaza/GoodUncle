@@ -67,17 +67,17 @@ This is an implementation of some basic features found in the Good Uncle App bui
 
   - User authentication is handled by AWS Amplify and Amazon Cognito.
   - Errors on form such as non-unique phone number or invalid password format are shown with an Alert.
-    <div style="text-align:center">
+    <p align="center" float="left">
       <img src="assets/images/sign-up-screen" alt="Sign Up Screen">
       <img src="assets/images/sign-up-error" alt="Sign Up Error">
-      </div>
+      </p>
 
 - On sign in, the user will be required to enter a phone number and valid password for an already existing account. The user will be brought into the app experience once they sign in.
-    <div style="text-align:center">
+  <p float="left" align="center">
     <img src="assets/images/sign-in-screen-phone-number" alt="Sign In Screen with phone keypad">
     <img src="assets/images/sign-in-screen-password" alt="Sign In Screen with normal keypad">
     <img src="assets/images/sign-in-error" alt="Sign In Error">
-    </div>
+    </p>
 - A user should be able to log out, which brings them back to the landing screen.
 
 - Good Uncle sells 5 categories of products: mains (i.e., an entree), sides, snacks, drinks, and condiments. For this project, only products that are "mains" are displayed.
