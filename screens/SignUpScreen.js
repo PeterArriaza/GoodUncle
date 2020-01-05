@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput, Button, StyleSheet, Text, View } from "react-native";
+import { TextInput, Button, StyleSheet, Alert, View } from "react-native";
 import { Auth } from "aws-amplify";
 
 export default class SignUpScreen extends React.Component {
@@ -20,7 +20,7 @@ export default class SignUpScreen extends React.Component {
   }
   signUp() {
     Auth.signUp({
-      username: this.state.email,
+      username: this.state.phone_number,
       password: this.state.password,
       attributes: {
         name: this.state.name,
@@ -31,19 +31,33 @@ export default class SignUpScreen extends React.Component {
       .then(() => {
         console.log("successful sign up!");
         this.props.navigation.navigate("ConfirmSignUpScreen", {
-          username: this.state.email
+          username: this.state.phone_number
         });
       })
-      .catch(err => console.log("error signing up!: ", err));
+      .catch(err => {
+        console.log("error signing up!: ", err);
+        Alert.alert(
+          "Error Signing Up",
+          `${err.message}`,
+          [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+          { cancelable: false }
+        );
+      });
   }
 
   render() {
     return (
       <View style={styles.container}>
         <TextInput
+          onChangeText={value => this.onChangeText("phone_number", value)}
+          style={styles.input}
+          placeholder="phone with country code (+1 for USA)"
+          keyboardType="phone-pad"
+        />
+        <TextInput
           onChangeText={value => this.onChangeText("email", value)}
           style={styles.input}
-          placeholder="email (used as username)"
+          placeholder="email"
           keyboardType="email-address"
         />
         <TextInput
@@ -56,14 +70,9 @@ export default class SignUpScreen extends React.Component {
           onChangeText={value => this.onChangeText("password", value)}
           style={styles.input}
           secureTextEntry={true}
-          placeholder="password"
+          placeholder="password (min. 8 characters)"
         />
-        <TextInput
-          onChangeText={value => this.onChangeText("phone_number", value)}
-          style={styles.input}
-          placeholder="phone with country code (+1 for USA)"
-          keyboardType="phone-pad"
-        />
+
         <Button title="Sign Up" onPress={this.signUp.bind(this)} />
       </View>
     );

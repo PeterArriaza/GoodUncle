@@ -1,11 +1,14 @@
 import React from "react";
-import { TextInput, Button, StyleSheet, Text, View } from "react-native";
+import { TextInput, Button, StyleSheet, Alert, View } from "react-native";
 import { Auth } from "aws-amplify";
 
 export default class ConfirmSignUpScreen extends React.Component {
   constructor(props) {
     super(props);
   }
+  state = {
+    confirmationCode: ""
+  };
 
   onChangeText(key, value) {
     this.setState({
@@ -22,7 +25,15 @@ export default class ConfirmSignUpScreen extends React.Component {
         console.log("successful confirm sign up!");
         this.props.navigation.navigate("Main");
       })
-      .catch(err => console.log("error confirming signing up!: ", err));
+      .catch(err => {
+        console.log("error confirming signing up!: ", err);
+        Alert.alert(
+          "Error Signing Up",
+          `${err.message}`,
+          [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+          { cancelable: false }
+        );
+      });
   }
   render() {
     return (

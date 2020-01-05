@@ -10,7 +10,6 @@ export default class SignInScreen extends React.Component {
   state = {
     username: "",
     password: "",
-    confirmationCode: "",
     user: {}
   };
   onChangeText(key, value) {
@@ -26,23 +25,24 @@ export default class SignInScreen extends React.Component {
         console.log("successful sign in!");
         this.props.navigation.navigate("Main");
       })
-      .catch(err => console.log("error signing in!: ", err));
+      .catch(err => {
+        console.log("error signing in!: ", err);
+        Alert.alert(
+          "Error Signing Up",
+          `${err.message}`,
+          [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+          { cancelable: false }
+        );
+      });
   }
-  // confirmSignIn() {
-  //   Auth.confirmSignIn(this.state.user, this.state.confirmationCode)
-  //     .then(() => {
-  //       console.log('successful confirm sign in!');
-  //       this.props.screenProps.authenticate(true);
-  //     })
-  //     .catch(err => console.log('error confirming signing in!: ', err));
-  // }
   render() {
     return (
       <View style={styles.container}>
         <TextInput
           onChangeText={value => this.onChangeText("username", value)}
           style={styles.input}
-          placeholder="username"
+          placeholder="phone number"
+          keyboardType="phone-pad"
         />
         <TextInput
           onChangeText={value => this.onChangeText("password", value)}
@@ -51,15 +51,6 @@ export default class SignInScreen extends React.Component {
           placeholder="password"
         />
         <Button title="Sign In" onPress={this.signIn.bind(this)} />
-        {/* <TextInput
-          onChangeText={value => this.onChangeText('confirmationCode', value)}
-          style={styles.input}
-          placeholder="confirmation Code"
-        />
-        <Button
-          title="Confirm Sign In"
-          onPress={this.confirmSignIn.bind(this)}
-        /> */}
       </View>
     );
   }
