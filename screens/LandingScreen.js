@@ -5,7 +5,7 @@ export default function LandingScreen(props) {
   return (
     <View style={styles.navContainer}>
       <View style={styles.textContainer}>
-        <Text style={styles.header}>Welcome to GoodUncle!</Text>
+        <Text style={styles.header}>Welcome to Good Uncle!</Text>
         <Text style={styles.body}>
           We believe in food that’s good and good for you. We start by sourcing
           high quality, local ingredients, then create well-balanced meals that

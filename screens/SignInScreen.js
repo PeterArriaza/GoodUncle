@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput, Button, StyleSheet, Text, View } from "react-native";
+import { TextInput, Button, StyleSheet, Text, View, Alert } from "react-native";
 
 import { Auth } from "aws-amplify";
 
@@ -28,7 +28,7 @@ export default class SignInScreen extends React.Component {
       .catch(err => {
         console.log("error signing in!: ", err);
         Alert.alert(
-          "Error Signing Up",
+          "Error Signing In",
           `${err.message}`,
           [{ text: "OK", onPress: () => console.log("OK Pressed") }],
           { cancelable: false }
@@ -41,7 +41,7 @@ export default class SignInScreen extends React.Component {
         <TextInput
           onChangeText={value => this.onChangeText("username", value)}
           style={styles.input}
-          placeholder="phone number"
+          placeholder="phone with country code (+1 for USA)"
           keyboardType="phone-pad"
         />
         <TextInput

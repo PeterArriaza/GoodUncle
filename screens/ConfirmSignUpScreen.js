@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput, Button, StyleSheet, Alert, View } from "react-native";
+import { TextInput, Button, StyleSheet, Alert, View, Text } from "react-native";
 import { Auth } from "aws-amplify";
 
 export default class ConfirmSignUpScreen extends React.Component {
