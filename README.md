@@ -46,7 +46,9 @@ This is an implementation of some basic features found in the Good Uncle App bui
   - Redux is used for state management and holds the items in the user's cart and total of the cart.
   - Local state is used for displaying the menu and user sign up/sign in as these state variables do not need to be accessed in other screens.
 
-- You should set up a GitHub repo to hold your project. -[https://github.com/PeterArriaza/gooduncle]
+- You should set up a GitHub repo to hold your project.
+
+  - https://github.com/PeterArriaza/gooduncle
 
 - The project repo should include a clear readme that explains to anyone who clones down the project how to build and run it in Xcode and Android Studio, as well as how to troubleshoot common problems.
 
