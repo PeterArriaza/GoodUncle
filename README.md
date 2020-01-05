@@ -73,11 +73,13 @@ This is an implementation of some basic features found in the Good Uncle App bui
       </p>
 
 - On sign in, the user will be required to enter a phone number and valid password for an already existing account. The user will be brought into the app experience once they sign in.
-  <p float="left" align="center">
-    <img src="assets/images/sign-in-screen-phone-number.png" alt="Sign In Screen with phone keypad">
-    <img src="assets/images/sign-in-screen-password.png" alt="Sign In Screen with normal keypad">
-    <img src="assets/images/sign-in-error.png" alt="Sign In Error">
-    </p>
+  - The various form inputs bring up applicable keyboard layouts on sign in and sign up screens.
+  - AWS Amplify verifies that the provided information is correct and an error will be shown if the user's credentials are incorrect.
+    <p float="left" align="center">
+      <img src="assets/images/sign-in-screen-phone-number.png" alt="Sign In Screen with phone keypad">
+      <img src="assets/images/sign-in-screen-password.png" alt="Sign In Screen with normal keypad">
+      <img src="assets/images/sign-in-error.png" alt="Sign In Error">
+      </p>
 - A user should be able to log out, which brings them back to the landing screen.
 
   - See screenshot below. Log out button is only shown on Menu tab to show customization of screen headers in the stack navigator.
