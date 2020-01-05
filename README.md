@@ -68,15 +68,15 @@ This is an implementation of some basic features found in the Good Uncle App bui
   - User authentication is handled by AWS Amplify and Amazon Cognito.
   - Errors on form such as non-unique phone number or invalid password format are shown with an Alert.
     <p align="center">
-      <img src="assets/img/sign-up-screen" alt="Sign Up Screen">
-      <img src="assets/img/sign-up-error" alt="Sign Up Error">
+      <img src="assets/images/sign-up-screen" alt="Sign Up Screen">
+      <img src="assets/images/sign-up-error" alt="Sign Up Error">
       </p>
 
 - On sign in, the user will be required to enter a phone number and valid password for an already existing account. The user will be brought into the app experience once they sign in.
   <p align="center">
-    <img src="assets/img/sign-in-screen-phone-number" alt="Sign In Screen with phone keypad">
-    <img src="assets/img/sign-in-screen-password" alt="Sign In Screen with normal keypad">
-    <img src="assets/img/sign-in-error" alt="Sign In Error">
+    <img src="assets/images/sign-in-screen-phone-number" alt="Sign In Screen with phone keypad">
+    <img src="assets/images/sign-in-screen-password" alt="Sign In Screen with normal keypad">
+    <img src="assets/images/sign-in-error" alt="Sign In Error">
     </p>
 - A user should be able to log out, which brings them back to the landing screen.
 
