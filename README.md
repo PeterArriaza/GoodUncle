@@ -60,9 +60,9 @@ This is an implementation of some basic features found in the Good Uncle App bui
 ### Basic features and functionality:
 
 - The app should have a landing screen, from which the user can choose to sign up, or sign in — choosing either option brings the user to a new view.
-
-![alt text](assets/images/landing-screen.png "Landing Screen")
-
+  <p align="center">
+  ![alt text](assets/images/landing-screen.png "Landing Screen")
+  </p>
 - On sign up, the user will be required to enter a 10-digit phone number and minimum 6-character password. A unique phone number may only be used once to sign up for an account. The user will be brought into the app experience once they sign up.
 
   - User authentication is handled by AWS Amplify and Amazon Cognito.
