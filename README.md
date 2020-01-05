@@ -103,9 +103,11 @@ This is an implementation of some basic features found in the Good Uncle App bui
     </p>
 
 - From anywhere, the user can tap on their cart total, which opens a new view with a cart summary. From the cart summary a user can remove items from their cart, which updates their subtotal globally.
-  <p align="center">
-    <img src="assets/images/cart-screen.png" alt="Cart Screen">
-    </p>
+  - Individual item subtotals are shown in item rows.
+  - Pressing either the "+" or "-" buttons updates the item quantity, subtotal, and cart total globally. These values are pulled from the Redux store.
+    <p align="center">
+      <img src="assets/images/cart-screen.png" alt="Cart Screen">
+      </p>
 
 ## Areas for Improvement
 
