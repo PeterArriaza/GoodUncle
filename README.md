@@ -7,8 +7,8 @@ This is an implementation of some basic features found in the Good Uncle App bui
 #### On your mobile device (if not using simulator):
 
 - Download Expo Client App
-- [Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www "Google Play Store")
-- [iOS](https://itunes.apple.com/app/apple-store/id982107779 "App Store")
+  - [Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www "Google Play Store")
+  - [iOS](https://itunes.apple.com/app/apple-store/id982107779 "App Store")
 
 #### On your computer:
 
