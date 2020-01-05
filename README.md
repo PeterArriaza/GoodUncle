@@ -61,7 +61,7 @@ This is an implementation of some basic features found in the Good Uncle App bui
 
 - The app should have a landing screen, from which the user can choose to sign up, or sign in — choosing either option brings the user to a new view.
   <p align="center">
-  ![alt text](assets/images/landing-screen.png "Landing Screen")
+  <img src="assets/images/landing-screen.png" alt="Landing Screen">
   </p>
 - On sign up, the user will be required to enter a 10-digit phone number and minimum 6-character password. A unique phone number may only be used once to sign up for an account. The user will be brought into the app experience once they sign up.
 
