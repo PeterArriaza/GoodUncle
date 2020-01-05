@@ -65,9 +65,9 @@ This is an implementation of some basic features found in the Good Uncle App bui
   </p>
 - On sign up, the user will be required to enter a 10-digit phone number and minimum 6-character password. A unique phone number may only be used once to sign up for an account. The user will be brought into the app experience once they sign up.
 
-  - User authentication is handled by AWS Amplify and Amazon Cognito.
-  - Errors on form such as non-unique phone number or invalid password format are shown with an Alert.
-    <p float="left">
+  - User authentication is handled by AWS Amplify and Amazon Cognito. These services were selected because of their simplicity in integration and ability to scale. They also remove the need to maintain server side code.
+  - Errors on form such as non-unique phone number or invalid password format are shown with an Alert. AWS Amplify provides useful error messages to know exactly what the issue is.
+    <p float="left" align="center">
       <img src="assets/images/sign-up-screen.png" alt="Sign Up Screen">
       <img src="assets/images/sign-up-error.png" alt="Sign Up Error">
       </p>
@@ -80,15 +80,35 @@ This is an implementation of some basic features found in the Good Uncle App bui
     </p>
 - A user should be able to log out, which brings them back to the landing screen.
 
+  - See screenshot below. Log out button is only shown on Menu tab to show customization of screen headers in the stack navigator.
+
 - Good Uncle sells 5 categories of products: mains (i.e., an entree), sides, snacks, drinks, and condiments. For this project, only products that are "mains" are displayed.
+
+  <p align="center">
+    <img src="assets/images/menu-screen.png" alt="Menu Screen">
+    </p>
 
 - Tapping a main opens a new view that shows the main’s name, description, and price. This view should have an "add to cart" button that adds the main to the user’s cart and returns the user to the previous view.
 
+<p align="center">
+  <img src="assets/images/menu-item-detail-screen.png" alt="Menu Item Detail Screen">
+  </p>
+
 - The current, up to date subtotal of the user’s cart should be visible on all views once the user logs in.
 
+  <p align="center">
+    <img src="assets/images/menu-screen-item-in-cart.png" alt="Item Shown in Cart on All Screens">
+    </p>
+
 - From anywhere, the user can tap on their cart total, which opens a new view with a cart summary. From the cart summary a user can remove items from their cart, which updates their subtotal globally.
+  <p align="center">
+    <img src="assets/images/cart-screen.png" alt="Cart Screen">
+    </p>
 
 ## Areas for Improvement
 
 - Floating point math. Item and cart subtotals are shown with the `JSON.parse(...).toFixed(2)` method. Displayed numbers are sometimes shown without the specified precision.
 - Loading menu items asynchronously. Depending on internet speed or menu length, I have noticed that menu items are not displayed in the menu tab for up to a second.
+- User authorization persistence. Once app is closed, user is required to sign back into app. This would be accomplished by storing token in AsyncStorage as described in the [React Navigation docs](https://reactnavigation.org/docs/en/auth-flow.html "React Navigation - Auth Flow")
+- User password recovery. Methods are provided for this with AWS Amplify, but for simplicity this feature was omitted.
+- Form validation. Entering a blank form provides a "red screen error", rather than displaying the error in an Alert.
