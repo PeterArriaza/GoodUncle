@@ -72,7 +72,7 @@ This is an implementation of some basic features found in the Good Uncle App bui
       <img src="assets/images/sign-up-error.png" alt="Sign Up Error">
       </p>
   - After successfully signing up for an account, users are emailed a confirmation via AWS Amplify which they need to enter in a new screen.
-  - Submission of the correct verification code, brings the user to the menu screen.
+  - Submission of the correct verification code brings the user to the menu screen.
      <p align="center">
     <img src="assets/images/sign-up-confirm-screen.png" alt="Sign Up Confirmation Screen">
     </p>
