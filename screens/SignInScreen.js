@@ -19,21 +19,28 @@ export default class SignInScreen extends React.Component {
   }
   signIn() {
     const { username, password } = this.state;
-    Auth.signIn(username, password)
-      .then(user => {
-        this.setState({ user });
-        console.log("successful sign in!");
-        this.props.navigation.navigate("Main");
-      })
-      .catch(err => {
-        console.log("error signing in!: ", err);
-        Alert.alert(
-          "Error Signing In",
-          `${err.message}`,
-          [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+    username === "" || password === ""
+      ? Alert.alert(
+          "Error",
+          "Please fill in all fields before submitting",
+          [{ text: "OK" }],
           { cancelable: false }
-        );
-      });
+        )
+      : Auth.signIn(username, password)
+          .then(user => {
+            this.setState({ user });
+            console.log("successful sign in!");
+            this.props.navigation.navigate("Main");
+          })
+          .catch(err => {
+            console.log("error signing in!: ", err);
+            Alert.alert(
+              "Error Signing In",
+              `${err.message}`,
+              [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+              { cancelable: false }
+            );
+          });
   }
   render() {
     return (

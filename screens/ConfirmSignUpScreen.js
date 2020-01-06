@@ -17,23 +17,30 @@ export default class ConfirmSignUpScreen extends React.Component {
   }
 
   confirmSignUp() {
-    Auth.confirmSignUp(
-      this.props.navigation.getParam("username"),
-      this.state.confirmationCode
-    )
-      .then(() => {
-        console.log("successful confirm sign up!");
-        this.props.navigation.navigate("Main");
-      })
-      .catch(err => {
-        console.log("error confirming signing up!: ", err);
-        Alert.alert(
-          "Error Signing Up",
-          `${err.message}`,
-          [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+    this.state.confirmationCode === ""
+      ? Alert.alert(
+          "Error",
+          "Please fill confirmation code before submitting",
+          [{ text: "OK" }],
           { cancelable: false }
-        );
-      });
+        )
+      : Auth.confirmSignUp(
+          this.props.navigation.getParam("username"),
+          this.state.confirmationCode
+        )
+          .then(() => {
+            console.log("successful confirm sign up!");
+            this.props.navigation.navigate("Main");
+          })
+          .catch(err => {
+            console.log("error confirming signing up!: ", err);
+            Alert.alert(
+              "Error Signing Up",
+              `${err.message}`,
+              [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+              { cancelable: false }
+            );
+          });
   }
   render() {
     return (

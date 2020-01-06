@@ -19,30 +19,38 @@ export default class SignUpScreen extends React.Component {
     });
   }
   signUp() {
-    Auth.signUp({
-      username: this.state.phone_number,
-      password: this.state.password,
-      attributes: {
-        name: this.state.name,
-        email: this.state.email,
-        phone_number: this.state.phone_number
-      }
-    })
-      .then(() => {
-        console.log("successful sign up!");
-        this.props.navigation.navigate("ConfirmSignUpScreen", {
-          username: this.state.phone_number
-        });
-      })
-      .catch(err => {
-        console.log("error signing up!: ", err);
-        Alert.alert(
-          "Error Signing Up",
-          `${err.message}`,
-          [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+    const { name, password, phone_number, email } = this.state;
+    name === "" || password === "" || phone_number === "" || email === ""
+      ? Alert.alert(
+          "Error",
+          "Please fill in all fields before submitting",
+          [{ text: "OK" }],
           { cancelable: false }
-        );
-      });
+        )
+      : Auth.signUp({
+          username: this.state.phone_number,
+          password: this.state.password,
+          attributes: {
+            name: this.state.name,
+            email: this.state.email,
+            phone_number: this.state.phone_number
+          }
+        })
+          .then(() => {
+            console.log("successful sign up!");
+            this.props.navigation.navigate("ConfirmSignUpScreen", {
+              username: this.state.phone_number
+            });
+          })
+          .catch(err => {
+            console.log("error signing up!: ", err);
+            Alert.alert(
+              "Error Signing Up",
+              `${err.message}`,
+              [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+              { cancelable: false }
+            );
+          });
   }
 
   render() {
