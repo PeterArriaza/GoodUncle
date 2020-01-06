@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   View,
   FlatList,
-  SafeAreaView
+  SafeAreaView,
+  ActivityIndicator
 } from "react-native";
 import MenuItem from "../components/MenuItem";
 import { Auth } from "aws-amplify";
@@ -14,7 +15,8 @@ export default class MenuScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      loading: true
     };
   }
 
@@ -23,7 +25,7 @@ export default class MenuScreen extends React.Component {
       "https://s3.amazonaws.com/staginggooduncledigests/products_istcki0x000h28d97a9rv9jp.json"
     );
     const json = await response.json();
-    this.setState({ data: json.digestData.mains });
+    this.setState({ data: json.digestData.mains, loading: false });
   };
 
   componentDidMount() {
@@ -31,7 +33,9 @@ export default class MenuScreen extends React.Component {
   }
 
   render() {
-    return (
+    return this.state.loading ? (
+      <ActivityIndicator style={{ marginTop: 100 }} size="large" />
+    ) : (
       <SafeAreaView style={styles.container}>
         <View
           style={styles.container}
