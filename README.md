@@ -115,7 +115,7 @@ This is an implementation of some basic features found in the Good Uncle App bui
     <p align="center">
       <img src="assets/images/cart-screen.png" alt="Cart Screen">
       </p>
-      
+
 ## Troubleshooting
 
 - App does not load
@@ -133,6 +133,6 @@ This is an implementation of some basic features found in the Good Uncle App bui
   - Performance may also improve using a production build rather than the development build.
 - User authorization persistence. Once app is closed, user is required to sign back into app. This would be accomplished by storing token in AsyncStorage as described in the [React Navigation docs](https://reactnavigation.org/docs/en/auth-flow.html "React Navigation - Auth Flow")
 - User password recovery. Methods are provided for this with AWS Amplify, but for simplicity this feature was omitted.
-- Form validation. Entering a blank form provides a "red screen error", rather than displaying the error in an Alert.
+- Form validation. [Redux Form](https://redux-form.com/8.2.2/ "Redux Form website") provides elegant error handling and other features but was not included in this project.
 - Floating point math. Item and cart subtotals are shown with the `JSON.parse(...).toFixed(2)` method. Displayed numbers are sometimes shown without the specified precision.
-- [Accessibility](https://facebook.github.io/react-native/docs/accessibility "React Native Accessibility Docs"). `accessibility`, `accessibilityLabel`, `accessibilityHint`, and `accessibilityRole` were not specified for any elements.  I am overall unfamiliar with how to test for accessibility on mobile.  
+- [Accessibility](https://facebook.github.io/react-native/docs/accessibility "React Native Accessibility Docs"). `accessibility`, `accessibilityLabel`, `accessibilityHint`, and `accessibilityRole` were not specified for any elements. I am overall unfamiliar with how to test for accessibility on mobile.
