@@ -71,6 +71,11 @@ This is an implementation of some basic features found in the Good Uncle App bui
       <img src="assets/images/sign-up-screen.png" alt="Sign Up Screen">
       <img src="assets/images/sign-up-error.png" alt="Sign Up Error">
       </p>
+  - After successfully signing up for an account, users are emailed a confirmation via AWS Amplify which they need to enter in a new screen.
+  - Submission of the correct verification code, brings the user to the menu screen.
+     <p align="center">
+    <img src="assets/images/sign-up-confirm.png" alt="Landing Screen">
+    </p>
 
 - On sign in, the user will be required to enter a phone number and valid password for an already existing account. The user will be brought into the app experience once they sign in.
   - The various form inputs bring up applicable keyboard layouts on sign in and sign up screens.
