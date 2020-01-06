@@ -27,6 +27,7 @@ export class CartScreen extends React.Component {
               keyExtractor={item => item.id}
               renderItem={({ item }) => (
                 <View style={styles.cartItemRow}>
+                  {/* this ^ view is divided into two views to achieve vertical alignment */}
                   <View style={styles.cartItemName}>
                     <Text>{`${item.name}`}</Text>
                     <TouchableOpacity

@@ -5,6 +5,7 @@ import {
   REMOVE_FROM_CART
 } from "../actions";
 
+// increase item quantity by 1
 const updateCartItem = (cart, index) => {
   const updatedCart = [...cart];
   const itemInCart = updatedCart[index];
@@ -16,6 +17,7 @@ const updateCartItem = (cart, index) => {
   return updatedCart;
 };
 
+// reduce item quantity by 1
 const reduceCartItem = (cart, index) => {
   const updatedCart = [...cart];
   const itemInCart = updatedCart[index];
@@ -31,6 +33,7 @@ const reduceCartItem = (cart, index) => {
   }
 };
 
+// find index of item in cart array
 const findItemIndex = (cart, updateItem) => {
   let itemIndex = cart.findIndex(item => item.id === updateItem.id);
   return itemIndex;
@@ -48,7 +51,7 @@ export default (state = initialState, action) => {
       const item = action.item;
       const price = JSON.parse(item.price);
       const itemInCartIndex = findItemIndex(cart, item);
-
+      // if item is already in cart, updated qty; else add to cart
       const updatedCart =
         itemInCartIndex >= 0
           ? updateCartItem(cart, itemInCartIndex)
