@@ -118,6 +118,8 @@ This is an implementation of some basic features found in the Good Uncle App bui
 
 - Floating point math. Item and cart subtotals are shown with the `JSON.parse(...).toFixed(2)` method. Displayed numbers are sometimes shown without the specified precision.
 - Loading menu items asynchronously. Depending on internet speed or menu length, I have noticed that menu items are not displayed in the menu tab for up to a second.
+  - Per React Native Docs, using the [`getItemLayout`](https://facebook.github.io/react-native/docs/flatlist.html#getitemlayout "Get Item Layout Prop") prop in the FlatList may help improve performance in rendering.
+  - Performance may also improve using a production build rather than the development build.
 - User authorization persistence. Once app is closed, user is required to sign back into app. This would be accomplished by storing token in AsyncStorage as described in the [React Navigation docs](https://reactnavigation.org/docs/en/auth-flow.html "React Navigation - Auth Flow")
 - User password recovery. Methods are provided for this with AWS Amplify, but for simplicity this feature was omitted.
 - Form validation. Entering a blank form provides a "red screen error", rather than displaying the error in an Alert.
