@@ -59,6 +59,8 @@ This is an implementation of some basic features found in the Good Uncle App bui
 
 ### Basic features and functionality:
 
+- [System userflow diagram](https://www.figma.com/file/eHVTwF9HGnRUA7RfbrIQyd/GoodUncle?node-id=0%3A1 "System userflow diagram")
+
 - The app should have a landing screen, from which the user can choose to sign up, or sign in — choosing either option brings the user to a new view.
   <p align="center">
   <img src="assets/images/landing-screen.png" alt="Landing Screen">
@@ -113,13 +115,24 @@ This is an implementation of some basic features found in the Good Uncle App bui
     <p align="center">
       <img src="assets/images/cart-screen.png" alt="Cart Screen">
       </p>
+      
+## Troubleshooting
+
+- App does not load
+  - Make sure that device is connected to same wireless network as server run from command line.
+  - Try connecting device to computer with USB cable.
+  - If using an emulator, you might need to switch the "Connection type" in the expo window to "Local"
+- System requirements:
+  - Android Lollipop (5.0)
+  - iOS 10.0
 
 ## Areas for Improvement
 
-- Floating point math. Item and cart subtotals are shown with the `JSON.parse(...).toFixed(2)` method. Displayed numbers are sometimes shown without the specified precision.
 - Loading menu items asynchronously. Depending on internet speed or menu length, I have noticed that menu items are not displayed in the menu tab for up to a second.
   - Per React Native Docs, using the [`getItemLayout`](https://facebook.github.io/react-native/docs/flatlist.html#getitemlayout "Get Item Layout Prop") prop in the FlatList may help improve performance in rendering.
   - Performance may also improve using a production build rather than the development build.
 - User authorization persistence. Once app is closed, user is required to sign back into app. This would be accomplished by storing token in AsyncStorage as described in the [React Navigation docs](https://reactnavigation.org/docs/en/auth-flow.html "React Navigation - Auth Flow")
 - User password recovery. Methods are provided for this with AWS Amplify, but for simplicity this feature was omitted.
 - Form validation. Entering a blank form provides a "red screen error", rather than displaying the error in an Alert.
+- Floating point math. Item and cart subtotals are shown with the `JSON.parse(...).toFixed(2)` method. Displayed numbers are sometimes shown without the specified precision.
+- [Accessibility](https://facebook.github.io/react-native/docs/accessibility "React Native Accessibility Docs"). `accessibility`, `accessibilityLabel`, `accessibilityHint`, and `accessibilityRole` were not specified for any elements.  I am overall unfamiliar with how to test for accessibility on mobile.  
