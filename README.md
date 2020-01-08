@@ -15,7 +15,7 @@ This is an implementation of some basic features found in the Good Uncle App bui
 - [Install Node.js](https://nodejs.org/en/ "Node.js download")
 - Download the Expo CLI `npm install expo-cli --global`
 - Clone this repo `git clone https://github.com/PeterArriaza/GoodUncle.git`
-- Install dependencies with `npm install`
+- Install dependencies with `yarn install`
 - Move into the project folder `cd GoodUncle/`
 - Start the development server and client `expo start`
 - Ensure that mobile device is on same wireless network as computer and Open Expo Client on your mobile device. Scan the QR code printed by `expo start` with Expo Client (Android) or Camera (iOS). You may have to wait a minute while your project bundles and loads for the first time.
