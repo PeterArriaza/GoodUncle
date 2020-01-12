@@ -34,14 +34,14 @@ This is an implementation of some basic features found in the Good Uncle App bui
   - Allow custom naming of credit cards in the case where user has different cards of the same brand.
 - `Picker` components don't inherit app font and my custom system font is used.
     <details>
-    <summary><strong>See Screenshot from Location Picker</strong></summary>
-    <br/>
-    <p align="center">
-    <img src="assets/images/location-picker-screenshot-small.jpg" alt="Location Picker Screenshot with different fonts">
-    </p>
-    <p align="center">Note how "Philadelphia - Drexel" (which doesn't display fully) is in a different font.  This is typical of the grad year, birthday, and gender Pickers.</p>
-  </details>
-     - [RN docs for Limited Text Style Inheritance](https://facebook.github.io/react-native/docs/text#limited-style-inheritance "RN Docs Text Component") suggest making a component e.g. `MyAppText` that would replace `Text` components so that this can be globally styled. I'm unsure if this would be easier than just making sure all text components have font styling.
+      <summary><strong>See Screenshot from Location Picker</strong></summary>
+      <br/>
+      <p align="center">
+      <img src="assets/images/location-picker-screenshot-small.jpg" alt="Location Picker Screenshot with different fonts">
+      </p>
+      <p align="center">Note how "Philadelphia - Drexel" (which doesn't display fully) is in a different font.  This is typical of the grad year, birthday, and gender Pickers.</p>
+    </details>
+  - [React Native docs](https://facebook.github.io/react-native/docs/text#limited-style-inheritance "RN Docs Text Component") suggest making a component e.g. `MyAppText` that would replace `Text` components so that this can be globally styled. I'm unsure if this would be easier than just making sure all text components have font styling.
     - Also noticed this on the "Browse Items" and "Support" tabs.
 - Allow users to favorite an item for quick ordering in the future.
 - Allow users to schedule a time in advance for pick up.
