@@ -30,7 +30,7 @@ This is an implementation of some basic features found in the Good Uncle App bui
       </details>
 - Make entering credit card data easier
   - Integrate Google Pay/Apple Pay
-    - [React Native Payments library](https://github.com/naoufal/react-native-payments "React Native Payments Library") seems like the way to go for Google & Apple Pay integration
+  - [React Native Payments library](https://github.com/naoufal/react-native-payments "React Native Payments Library") seems like the way to go for Google & Apple Pay integration
   - Allow custom naming of credit cards in the case where user has different cards of the same brand.
 - `Picker` components don't inherit app font and my custom system font is used.
     <details>
