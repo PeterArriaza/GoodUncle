@@ -2,6 +2,48 @@
 
 This is an implementation of some basic features found in the Good Uncle App built in React Native. As a user, you can sign up for a new account, sign into your existing account, look through the menu, and add items into your cart.
 
+## Table of Contents
+
+- [Suggestions for App](#Suggestions-for-App)
+- [Installation](#installation)
+- [Project Requirements & How They Are Implemented](#project-requirements-&-how-they-are-implemented)
+- [Basic Features and Functionality](#basic-features-and-functionality)
+- [Troubleshooting](#Troubleshooting)
+- [Areas for Improvement](#Areas-for-Improvement)
+
+## Suggestions for App
+
+### Below are some of my ideas of how the Good Uncle team could improve their app. These are mostly based on my experience signing up and navigating the app, although I have to order something from the app.
+
+- Kitchen Hours
+  - Some locations didn't have hours listed. All hours are just shown as "CLOSED". Is there a better message that can be shown here?
+  - Have a statement under "Kitchen is closed" that lets the user know when the next time the Kitchen will be open.
+    - Edit: Noticed "WE'LL OPEN FOR DELIVERY SOON" subheading. But still think a more descriptive message would be beneficial.
+  - Or if the kitchen is currently open, when the kitchen will close that day.
+  - Update kitchen hours more regularly. At 1:30 PM kitchen was still closed despite nominal 12 PM opening.
+    <details>
+      <summary><strong>See Screenshot from Hours screen</strong></summary>
+      <br/>
+      <p align="center">
+      <img src="assets/images/closed-hours-screenshot.jpg" alt="Hours screen that says closed when it should be open">
+      </p>
+- Make entering credit card data easier
+  - Integrate Google Pay/Apple Pay
+    - [React Native Payments library](https://github.com/naoufal/react-native-payments "React Native Payments Library") seems like the way to go for Google & Apple Pay integration
+  - Allow custom naming of credit cards in the case where user has different cards of the same brand.
+- `Picker` components don't inherit app font and my custom system font is used.
+    <details>
+    <summary><strong>See Screenshot from Location Picker</strong></summary>
+    <br/>
+    <p align="center">
+    <img src="assets/images/location-picker-screenshot.jpg" alt="Location Picker Screenshot with different fonts">
+    </p>
+    <p align="center">Note how "Philadelphia - Drexel" (which doesn't display fully) is in a different font.  This is typical of the grad year, birthday, and gender Pickers.</p>
+  </details>
+    - RN docs for [Limited Text Style Inheritance](https://facebook.github.io/react-native/docs/text#limited-style-inheritance) suggest making a component e.g. `MyAppText` that would replace `Text` components so that this can be globally styled. I'm unsure if this would be easier than just making sure all text components have font styling.
+    - Also noticed this on the "Browse Items" and "Support" tabs.
+- After having the app open for some time, an activity indicator replaces screen content. Can this data pull be done in the background?
+
 ## Installation
 
 #### On your mobile device (if not using simulator):
@@ -13,9 +55,9 @@ This is an implementation of some basic features found in the Good Uncle App bui
 #### On your computer:
 
 - [Install Node.js](https://nodejs.org/en/ "Node.js download")
-- Download the Expo CLI `npm install expo-cli --global`
+- Download the Expo CLI `yarn global add expo-cli`
 - Clone this repo `git clone https://github.com/PeterArriaza/GoodUncle.git`
-- Install dependencies with `npm install`
+- Install dependencies with `yarn install`
 - Move into the project folder `cd GoodUncle/`
 - Start the development server and client `expo start`
 - Ensure that mobile device is on same wireless network as computer and Open Expo Client on your mobile device. Scan the QR code printed by `expo start` with Expo Client (Android) or Camera (iOS). You may have to wait a minute while your project bundles and loads for the first time.
@@ -57,7 +99,7 @@ This is an implementation of some basic features found in the Good Uncle App bui
 - Don’t worry about the styling of your app. But, please make sure all content is visible and that the app works on an iPhone 8, iPhone 11 Pro Max, Pixel 2, and Pixel 2 XL. If you do find yourself motivated to style the app, feel free to do so.
   - Physical device testing on Samsung S9 and iPhone X. Emulated with Pixel 2.
 
-### Basic features and functionality:
+## Basic Features and Functionality
 
 - [System userflow diagram](https://www.figma.com/file/eHVTwF9HGnRUA7RfbrIQyd/GoodUncle?node-id=0%3A1 "System userflow diagram")
 
