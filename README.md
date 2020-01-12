@@ -25,7 +25,7 @@ This is an implementation of some basic features found in the Good Uncle App bui
       <summary><strong>See Screenshot from Hours screen</strong></summary>
       <br/>
       <p align="center">
-      <img src="assets/images/closed-hours-screenshot.jpg" alt="Hours screen that says closed when it should be open">
+      <img src="assets/images/closed-hours-screenshot-small.jpg" alt="Hours screen that says closed when it should be open">
       </p>
 - Make entering credit card data easier
   - Integrate Google Pay/Apple Pay
@@ -36,7 +36,7 @@ This is an implementation of some basic features found in the Good Uncle App bui
     <summary><strong>See Screenshot from Location Picker</strong></summary>
     <br/>
     <p align="center">
-    <img src="assets/images/location-picker-screenshot.jpg" alt="Location Picker Screenshot with different fonts">
+    <img src="assets/images/location-picker-screenshot-small.jpg" alt="Location Picker Screenshot with different fonts">
     </p>
     <p align="center">Note how "Philadelphia - Drexel" (which doesn't display fully) is in a different font.  This is typical of the grad year, birthday, and gender Pickers.</p>
   </details>
