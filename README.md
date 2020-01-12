@@ -13,7 +13,7 @@ This is an implementation of some basic features found in the Good Uncle App bui
 
 ## Suggestions for App
 
-### Below are some of my ideas of how the Good Uncle team could improve their app. These are mostly based on my experience signing up and navigating the app, although I have to order something from the app.
+### Below are some of my ideas of how the Good Uncle team could improve their app. These are mostly based on my experience signing up and navigating the app, as I have not yet ordered something from the app.
 
 - Kitchen Hours
   - Some locations didn't have hours listed. All hours are just shown as "CLOSED". Is there a better message that can be shown here?
@@ -27,6 +27,7 @@ This is an implementation of some basic features found in the Good Uncle App bui
       <p align="center">
       <img src="assets/images/closed-hours-screenshot-small.jpg" alt="Hours screen that says closed when it should be open">
       </p>
+      </details>
 - Make entering credit card data easier
   - Integrate Google Pay/Apple Pay
     - [React Native Payments library](https://github.com/naoufal/react-native-payments "React Native Payments Library") seems like the way to go for Google & Apple Pay integration
@@ -42,7 +43,19 @@ This is an implementation of some basic features found in the Good Uncle App bui
   </details>
     - RN docs for [Limited Text Style Inheritance](https://facebook.github.io/react-native/docs/text#limited-style-inheritance) suggest making a component e.g. `MyAppText` that would replace `Text` components so that this can be globally styled. I'm unsure if this would be easier than just making sure all text components have font styling.
     - Also noticed this on the "Browse Items" and "Support" tabs.
+- Allow users to favorite an item for quick ordering in the future.
+- Allow users to schedule a time in advance for pick up.
 - After having the app open for some time, an activity indicator replaces screen content. Can this data pull be done in the background?
+- Clicking outside of modal windows should close the modal.
+- Button to close menu item detail screen should be a little more prominent. Drop shadow isn't enough to differentiate it from the menu background in some views.
+  <details>
+      <summary><strong>See Screenshots with highlighted close button</strong></summary>
+      <br/>
+      <p align="center">
+      <img src="assets/images/menu-item-screenshot-small.jpg" alt="Menu Item Screenshot">
+      <img src="assets/images/menu-item-screenshot-small-circled.jpg" alt="Menu Item Screenshot with circled close button">
+      </p>
+    </details>
 
 ## Installation
 
